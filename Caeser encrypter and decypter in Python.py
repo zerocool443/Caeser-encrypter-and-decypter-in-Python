@@ -1,20 +1,20 @@
 def incrementer(a,i):
-    return(chr(ord(a)+i))
+    return(chr((ord(a)+i)%256))
 def decrementer(a,i):
-    return(chr(ord(a)-i))
+    return(chr((ord(a)-i)%256))
 
 def encrypter(message):
     l=len(message)
-    for x in range(1,27):
-        temp=""		
+    for x in range(1,256):
+    	temp=""	
 	for y in range(0,l):
-            temp=temp+incrementer(message[y],x)
-	print("ROT "+str(x)+" "+temp)
+		temp=temp+incrementer(message[y],x)
+		print("ROT "+str(x)+" "+temp)
     
 
 def decrypter(message):
     l=len(message)
-    for x in range(1,27):
+    for x in range(1,256):
         temp=""		
 	for y in range(0,l):
             temp=temp+decrementer(message[y],x)
